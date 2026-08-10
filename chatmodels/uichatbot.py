@@ -1,10 +1,13 @@
 
 
 
-import streamlit as st
-from langchain.chat_models import init_chat_model
-from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
+# import streamlit as st
+# from langchain.chat_models import init_chat_model
+# from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 
+import streamlit as st
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 
 st.set_page_config(page_title="Gen AI Chatbot", page_icon="🤖")
 
@@ -12,9 +15,14 @@ st.title("🤖 Gen AI Chatbot")
 st.caption("Funny AI Agent By Ak")
 
 
-model = init_chat_model(
-    "google_genai:gemini-3.5-flash-lite",
-    api_key=st.secrets["GOOGLE_API_KEY"]
+# model = init_chat_model(
+#     "google_genai:gemini-3.5-flash-lite",
+#     api_key=st.secrets["GOOGLE_API_KEY"]
+# )
+
+model = ChatGoogleGenerativeAI(
+    model="gemini-3.5-flash-lite",
+    api_key=st.secrets["GOOGLE_API_KEY"],
 )
 
 
